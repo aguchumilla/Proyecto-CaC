@@ -1,0 +1,93 @@
+/*
+Autor: Agustin Chumilla
+Fecha: 26/03/24
+Descripción: Este archivo CSS contiene los estilos para el sitio web Mauricio Rodriguez.
+*/
+
+:root{
+    --primary-color: rgb(138, 50, 50);
+    --secondary-color: #fdede3;
+    --third-color: #4e0a0b;
+    --third-bis-color: #db4648f2;
+    /*colores de fondo*/
+    --bg-color: #181419;
+    --bg-input-color: #2f1b352c;
+    /*fuente primaria*/
+    --primary-font: Arial, sans-serif, helvetica;
+
+}
+body, html{
+    font-family: var(--primary-font);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+header{
+    background-color: var(--third-color);
+    padding: 2vh 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li{
+    display: inline-block;
+}
+nav ul li:first-child{
+    margin-left: 0;
+}
+nav ul li:last-child{
+    margin-right: 2vw;
+}
+nav ul li a, nav>a{
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: background-color 0.3s; 
+}
+
+nav ul li a:hover{
+    background-color: var(--third-bis-color);
+}
+
+.logo-header{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+    width: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
