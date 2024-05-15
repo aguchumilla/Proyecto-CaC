@@ -1,0 +1,36 @@
+<menu class="form">
+        <h3>Formulario de registro</h3>
+        <form action="show_data.html" target="_blank">
+            <label for="firstname">Nombre:</label>
+            <input type="text" name="firstname" placeholder="Ingrese su nombre aqui...">
+            <br><br>
+            <label for="lastname">Apellido:</label>
+            <input type="text" name="lastname" placeholder="Ingrese su apellido aqui...">
+            <br><br>
+            <label for="street">Direccion:</label>
+            <input type="text" name="street" placeholder="Ingrese su dirección aqui...">
+            <br><br>
+            <label for="city">Ciudad:</label>
+            <input type="text" name="city" value="C.A.B.A">
+            <br><br>
+            <label for="zipcode">Código Postal:</label>
+            <input type="text" name="zipcode" placeholder="Ingrese su apellido aqui...">
+            <br><br>
+            <label for="Birthdate">Fecha de Nacimiento (mm/dd/yyyy):</label>
+            <input type="text" name="Birthdate">
+            <br><br>
+            <p> Género
+                <input type="radio" name="gender" value="hombre" checked>Hombre
+                <input type="radio" name="gender" value="mujer">Mujer
+                <input type="radio" name="gender" value="otro">Otro
+            </p>
+            <p> Estudios:
+                <input type="checkbox" name="estudio" value="primarios">Primarios
+                <input type="checkbox" name="estudio" value="secundarios">Secundarios
+                <input type="checkbox" name="estudio" value="terciarios">Terciarios
+                <input type="checkbox" name="estudio" value="universitarios">Universitarios
+                <input type="checkbox" name="estudio" value="otro">Otro
+            </p>
+            <input type="submit" value="Enviar">
+        </form>
+    </menu>
