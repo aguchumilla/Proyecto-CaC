@@ -1,0 +1,158 @@
+/*
+Autor: Agustin Chumilla
+Fecha: 26/03/24
+Descripción: Este archivo CSS contiene los estilos para el sitio web Mauricio Rodriguez.
+*/
+
+:root {
+  --primary-color: rgb(138, 50, 50);
+  --secondary-color: #fdede3;
+  --third-color: #4e0a0b;
+  --third-bis-color: #db4648f2;
+  /*colores de fondo*/
+  --bg-color: #181419;
+  --bg-input-color: #2f1b352c;
+  /*fuente primaria*/
+  --primary-font: Arial, sans-serif, helvetica;
+}
+body,
+html {
+  font-family: var(--primary-font);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+header {
+  background-color: var(--third-color);
+  padding: 2vh 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style-type: none;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a,
+nav > a {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--secondary-color);
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: var(--third-bis-color);
+}
+
+.logo-header {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  height: 60px;
+  width: 60px;
+}
+
+
+/* MENU HAMBURGESA */
+.respmenu {
+  display: none;
+}
+@media (max-width: 920px) {
+  nav ul li {
+    display: block;
+  }
+  
+  .nav {
+    display: none;
+  }
+
+  .respmenu a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    border-bottom: 2px solid #00000020;
+    background: #00000020;
+    font-variant: small-caps;
+    text-shadow: 1px 1px black;
+  }
+
+  .respmenu input[type="checkbox"],
+  .respmenu .fa-bars,
+  .respmenu .fa-times {
+    position: absolute;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+  }
+
+  .respmenu .fa-bars,
+  .respmenu .fa-times {
+    font-size: 48px;
+    pointer-events: none;
+  }
+
+  .respmenu input[type="checkbox"] {
+    opacity: 0;
+  }
+
+  .respmenu {
+    color: white;
+    min-height: 48px;
+    display: flex;
+  }
+
+  .respmenu nav {
+    display: none;
+    animation: MenuHamburguesa 1s ease-in-out both;
+  }
+
+  @keyframes MenuHamburguesa {
+    from {
+      transform: translateY(-150px);
+    }
+    to {
+      transform: translateY(0px);
+    }
+  }
+  .respmenu input:checked ~ nav {
+    position: absolute;
+    width: 100%;
+    display: block;
+    height: auto;
+    justify-content: center;
+    animation: MenuHamburguesa 1s ease-in-out both;
+  }
+  nav {
+    display: block;
+    }
+  
+  nav ul {
+    text-align: center;
+  }
+
+  .respmenu input:checked ~ .fa-bars {
+    display: none;
+  }
+
+  .respmenu input:not(:checked) ~ .fa-times {
+    display: none;
+  }
+}
