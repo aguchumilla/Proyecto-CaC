@@ -4,48 +4,67 @@ Fecha: 26/03/24
 Descripción: Este archivo CSS contiene los estilos para el sitio web Mauricio Rodriguez.
 */
 
-:root{
-    --primary-color: rgb(138, 50, 50);
+:root {
+    --primary-color: rgb(37, 1, 138);
     --secondary-color: #fdede3;
-    --third-color: #4e0a0b;
-    --third-bis-color: #db4648f2;
+    --third-color: #0a0b4e;
+    --third-bis-color: #00109e;
     /*colores de fondo*/
-    --bg-color: #181419;
-    --bg-input-color: #2f1b352c;
+    --bg-color: #141419;
+    --bg-input-color: #1b1b352c;
     /*fuente primaria*/
     --primary-font: Arial, sans-serif, helvetica;
 
 }
-body, html{
+
+body {
+    background: linear-gradient(90deg, var(--secondary-color), var(--bg-color));
+    /* background:linear-gradient(var(--bg-input-color),rgba(255,255,255,0.8)); */
     font-family: var(--primary-font);
     margin: 0;
     padding: 0;
     height: 100vh;
 }
 
-header{
-    background-color: var(--third-color);
-    padding: 2vh 0;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 22, 121, 0.9); 
+    color: white;
+    padding: 10px 20px;
+    z-index: 1000; 
 }
-
-nav{
+.menu {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: sticky;
+    margin: 0;
+    padding: 0%;
+    /* background-image: linear-gradient(60deg, blue, white); */
+    height: 5rem;
 }
 
-nav ul {
-    list-style-type: none;
-    text-align: right;
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
-nav ul li{
-    display: inline-block;
+li {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
 }
-nav ul li:first-child{
-    margin-left: 0;
+
+li a {
+    text-decoration: none;
+    width: 100%;
 }
 nav ul li:last-child{
     margin-right: 2vw;
@@ -63,31 +82,402 @@ nav ul li a:hover{
     background-color: var(--third-bis-color);
 }
 
-.logo-header{
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    height: 60px;
-    width: 60px;
+.logo {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* align-items: center; */
+    font-size: 1rem;
+}
+
+.logo>a {
+    margin-left: 20px;
+}
+@keyframes moveUpAndDown {
+
+    0%,
+    100% {
+        transform: translateY(3);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+.logo:hover {
+    animation: moveUpAndDown 0.7s infinite alternate;
+}
+
+/* --------------------- menu responsive del header ----------------------- */
+.respmenu {
+    display: none;
+}
+
+@media (max-width:920px) {
+
+    .nav {
+        display: none;
+    }
+
+    .respmenu a {
+                 
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+        text-align: center;
+        border-bottom: 2px solid var(--bg-color);
+        min-width: 400px;
+        background:rgba(255, 255, 255, 0.9);
+        /* font-variant: small-caps; */
+        color: #0a0b4e;
+        /* text-shadow: 1px 1px black; */
+    }
+
+    .respmenu input[type="checkbox"],
+    .respmenu .fa-bars,
+    .respmenu .fa-times {
+        
+        position: absolute;
+        box-sizing: border-box;
+        margin: 1rem 2rem;
+        padding: 0;
+        right: 0;
+        top: 0;
+        width: 48px;
+        height: 48px;
+    }
+
+    .respmenu .fa-bars,
+    .respmenu .fa-times {
+        font-size: 48px;
+        pointer-events: none;
+    }
+
+    .respmenu input[type="checkbox"] {
+        opacity: 0;
+    }
+
+    .respmenu {
+        color: var(--secondary-color);
+        background: #123456;
+        min-height: 48px;
+        display: flex;
+    }
+
+    .respmenu nav ul {
+        
+        margin: 0;
+        opacity: .9;
+        padding: 0;
+    }
+
+    .respmenu nav {
+        display: none;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 5rem;
+        animation: MenuHamburguesa 1s ease both;
+
+    }
+
+    @keyframes MenuHamburguesa {
+        from {
+            transform: translateY(-230px);
+        }
+
+        to {
+            transform: translateY(0px);
+        }
+    }
+
+    .respmenu input:checked~nav {
+        display: block;
+        transition: all 5s;
+    }
+
+    .respmenu input:checked~.fa-bars {
+        display: none;
+    }
+
+    .respmenu input:not(:checked)~.fa-times {
+        display: none;
+    }
 }
 
 
+/* ------------------BANNER--------------------------- */
+.banner {
+    width: 100%;
+    height: 820px;
+    /* Ajusta la altura */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo {
+    font-style: italic;
+}
+
+.banner h1,
+.banner h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    padding: 30px 60px;
+    /* Añade un poco de espacio entre el texto y el borde del fondo */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fondo semitransparente */
+    border-radius: 10px;
+}
+
+.banner a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: var(--third-bis-color);
+    /* Color de fondo azul */
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.banner a:hover {
+    background-color: var(--third-color);
+    /* Color de fondo azul más oscuro al pasar el mouse */
+}
 
 
+/* ----------- Seccion partes ---------- */
+.computer-part {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.computer-part h2 {
+    margin-top: 0;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
 
 
+/* -------------- Footer ----------------- */
+footer {
+    background-color: var(--third-color);
+    /* Color de fondo del footer */
+    color: var(--secondary-color);
+    padding: 20px;
+    /* Espaciado interno del footer */
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    /* Elimina el margen predeterminado del párrafo */
+}
+
+footer a {
+    color: var(--secondary-color);
+    /* Color del texto del enlace */
+    text-decoration: none;
+    /* Elimina el subrayado del enlace */
+}
+
+footer a:hover {
+    text-decoration: underline;
+    /* Subrayado del enlace al pasar el mouse */
+}
+
+.logo-header img {
+    width: 30px;
+    /* Tamaño de la imagen del ícono */
+    height: 30px;
+    vertical-align: middle;
+    /* Alinea verticalmente la imagen con el texto */
+    margin-right: 5px;
+    /* Espaciado a la derecha de la imagen */
+}
+
+/* ---------------- Formulario ----------------- */
+.form{
+    position: relative;
+    width: 70%;
+    top: 1vh;
+    left:15%;
+    text-align: left;
+    background-color: var(--bg-input-color);
+    border-radius: 5px;
+    padding-top: 20px;
+  }
+  menu form{
+    padding-top: 20px;
+  }
+  menu form>label{
+    padding-left: 1rem;
+  }
+  menu form label+input{
+    border:1px solid var(--secondary-color);
+    width: 80%;
+    padding: 1vw;
+    margin: 1vw;
+    box-sizing: border-box;
+  }
+  input[type = "submit"]{
+    width: 64vw; 
+    padding: 14px;
+    color: var(--secondary-color);
+    background-color: var(--third-bis-color);
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+  }
+  input[type = "submit"]:hover{
+    background-color: var(--third-color);
+  }
+  form p>input{
+    cursor: pointer;
+  }
+  form p>input::after{
+    content: "Por favor colocar una opción";
+    font-size: 1vw;
+    position: absolute;
+    color: var(--secondary-color);
+    background-color: var(--bg-color);
+    transition: 0.5s;
+    right: 5px;
+    opacity: 0;
+    padding: 2px;
+    padding-left: 0px;
+  }
+  form p>input:hover::after{
+    opacity: 1;
+    padding: 3px;
+    border-radius: 3px;
+  }
+  
+  /* Pie de pagina (formulario) */
+  .aceptado{
+    display: none;
+    background-color: rgb(20, 121, 0);
+    padding: 2rem;
+    margin-right: 2.8rem;
+    text-align: center;
+    border-radius: 1rem;
+  }
+  
+  .rechazado{
+    display: none;
+    background-color: rgb(126, 2, 2);
+    padding: 2rem;
+    margin-right: 2.8rem;
+    text-align: center;
+    border-radius: 1rem;
+  }
+/* ------------------ titulos -------------------- */
+.h1tit {
+    font-size: 20px;
+    color: var(--bg-color);
+    background-color: var(--bg-input-color);
+    padding: 10px 20px;
+    /* border-left: 1px solid var(--third-color); */
+    margin: 40px 0 20px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.h1tit:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--third-color);
+}
 
 
+/* ----------------- Quienes -------------------- */
+
+.quienes {
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.quienes div h1 {
+
+    display: flex;
+    align-items: flex-start;
+
+}
+
+.quienes div p {
+    padding: 100px;
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 800px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
 
 
+/* ------------ seccion contacto --------------- */
+.contacto {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+.contacto h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
 
+.contacto p {
+    padding: 20px;
+    font-size: 16px;
+    color: var(--secondary-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+    margin-bottom: 20px;
+}
 
+.contacto ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 30px;
+}
 
-
-
-
-
-
-
-
+.contacto li {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
